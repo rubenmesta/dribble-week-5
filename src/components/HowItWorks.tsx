@@ -10,31 +10,8 @@ import styled from '@emotion/styled';
 
 function HowItWorks() {
   return (
-    <Box
-      component="section"
-      sx={{ display: 'flex', bgcolor: '#fff5f8', overflow: 'hidden' }}
-    >
-      <Container
-        sx={{
-          mt: 10,
-          mb: 15,
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Box
-          component="img"
-          src="/productCurvyLines.png"
-          alt="curvy lines"
-          sx={{
-            pointerEvents: 'none',
-            position: 'absolute',
-            top: -180,
-            opacity: 0.7,
-          }}
-        />
+    <Wrapper component="section">
+      <StyledContainer>
         <Typography
           variant="h4"
           marked="center"
@@ -44,7 +21,7 @@ function HowItWorks() {
         >
           How it works
         </Typography>
-        <div>
+        <Box>
           <Grid container spacing={5}>
             <Grid item xs={12} md={4}>
               <Item className={'item'}>
@@ -91,7 +68,7 @@ function HowItWorks() {
               </Item>
             </Grid>
           </Grid>
-        </div>
+        </Box>
         <Button
           size="large"
           variant="contained"
@@ -100,11 +77,26 @@ function HowItWorks() {
         >
           Get started
         </Button>
-      </Container>
-    </Box>
+      </StyledContainer>
+    </Wrapper>
   );
 }
 
+const Wrapper = styled(Box)({
+  display: 'flex',
+  backgroundColor: '#fff5f8',
+  overflow: 'hidden',
+  backgroundImage: 'url("/productCurvyLines.png")',
+  backgroundPosition: 'center',
+});
+const StyledContainer = styled(Container)({
+  marginTop: '80px',
+  marginBottom: '120px',
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
 const Item = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
